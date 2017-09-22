@@ -18,11 +18,24 @@ def InGame():
 	while status is False: 
 		print "Choose a position"
 		position = int(raw_input())
-		board[position] = player1 
-		#status = False
+		player = ChangePlayer()
+		board[position] = player
 		ShowBoard()
 		if CheckWon() is True:
 			break
+def ChangePlayer():
+	player1 = "X"
+	player2 = "O"
+	player = ""
+	ingame = True
+	while ingame:
+		if player == "":
+			player = player1
+			return player
+		elif player == player1:
+			player = player2
+		else:
+			player = player1
 
 def CheckWon():
 	if board[0] == board[1] == board[2]:
@@ -32,6 +45,12 @@ def CheckWon():
 		print "End Game someone win"
 		return True
 	elif board[6] == board[7] == board[8]:
+		print "End Game someone win"
+		return True
+	elif board[0] == board[4] == board[8]:
+		print "End Game someone win"
+		return True
+	elif board[2] == board[4] == board[6]:
 		print "End Game someone win"
 		return True
 	else: 
