@@ -1,4 +1,5 @@
 board = range(9)
+player = ""
 
 def ShowBoard():
 	print board[0],"|", board[1], "|", board[2] , "\n" , board[3], "|" ,board[4], "|", board[5], "\n",  board[6], "|", board[7], "|", board[8] 
@@ -26,7 +27,7 @@ def InGame():
 def ChangePlayer():
 	player1 = "X"
 	player2 = "O"
-	player = ""
+	global player
 	ingame = True
 	while ingame:
 		if player == "":
@@ -34,8 +35,10 @@ def ChangePlayer():
 			return player
 		elif player == player1:
 			player = player2
+			return player
 		else:
 			player = player1
+			return player
 
 def CheckWon():
 	if board[0] == board[1] == board[2]:
