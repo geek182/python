@@ -18,9 +18,9 @@ def ClearBoard():
 	
 def InGame():
 	global board
-	status = False
+	status = True 
 	board = MakeBoard()
-	while status is False: 
+	while status : 
 		print "Choose a position"
 		position = CheckInput()
 		if CheckPosition(position):
