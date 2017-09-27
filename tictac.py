@@ -24,9 +24,10 @@ def InGame():
 	board = MakeBoard()
 	while status is False: 
 		print "Choose a position"
-		position = int(raw_input())
+		position = CheckInput()
 		if CheckPosition(position):
 			player = ChangePlayer()
+			print "Now is time to ", player , "play"
 			board[position] = player
 			ShowBoard()
 			if CheckWon() is True:
@@ -96,4 +97,16 @@ def CheckPosition(position):
 	else:
 		return True
 		
+def CheckInput():
+	while True:
+		try:
+			position = int(raw_input())
+		except:
+			print "Not a correct value"
+			continue
+		else:
+			return position
+			break
+	
+	
 InGame()
