@@ -18,8 +18,6 @@ def ClearBoard():
 	
 def InGame():
 	global board
-	player1 = "X"
-	player2 = "O"
 	status = False
 	board = MakeBoard()
 	while status is False: 
